@@ -41,7 +41,7 @@ public class EasyProblems {
         }
         return -1;
     }
-    public int firstBadversion(int n) {
+    public int firstBadVersion(int n) {
         int start = 1;
         int end = n;
         int minIdx = Integer.MAX_VALUE;
