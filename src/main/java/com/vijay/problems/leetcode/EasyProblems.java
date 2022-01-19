@@ -1,5 +1,8 @@
 package com.vijay.problems.leetcode;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class EasyProblems {
     /**
      * int[] nums = [...]; // Input array
@@ -41,7 +44,7 @@ public class EasyProblems {
         }
         return -1;
     }
-    public int firstBadVersion(int n) {
+    public static int firstBadVersion(int n) {
         int start = 1;
         int end = n;
         int minIdx = Integer.MAX_VALUE;
@@ -57,7 +60,24 @@ public class EasyProblems {
         return minIdx;
     }
     // This method is just for sample to avoid compile time error
-    private boolean isBadVersion(int num) {
+    private static boolean isBadVersion(int num) {
         return num <= 20;
+    }
+
+    public static int[] twoSum(int[] nums, int target) {
+        int[] result = new int[2];
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            // a + b = target;
+            // b = target-a;
+            if (map.containsKey(target - nums[i])) {
+                result[1] = i;
+                result[0] = map.get(target - nums[i]);
+                return result;
+            } else {
+                map.put(nums[i], i);
+            }
+        }
+        return result;
     }
 }
